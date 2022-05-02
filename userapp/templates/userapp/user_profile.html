@@ -1,0 +1,239 @@
+{% load static %}
+<html lang="eng">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--==Title==================================-->
+<title>God's Own Recipe</title>
+<!--Stylesheet===============================-->
+<link rel="stylesheet" href="{% static 'userapp/css/user_index.css' %}">
+<link rel="stylesheet" href="{% static 'userapp/css/user_index_nav.css' %}">
+<!--==fav-icon===============================-->
+<link rel="shortcut icon" href="{% static 'user_media/logo-recipe.png' %}"/>
+<!--==Import-poppins-font-family=============-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body style="background: url({% static 'user_media/userindexback.jpg' %})no-repeat fixed center center;
+	    background-size: cover;">
+{% block content %}
+    <!--==Page-Scroll-progress-bar==============-->
+    <div id="progress">
+        <span id="progress-value"></span>
+    </div>
+    <!--==navigation=============================-->
+    <nav class="navigation">
+        <!--logo------------>
+        <a href="#" class="logo">God's Own Recipe</a>
+        <!--menu-btn-------->
+        <input type="checkbox" class="menu-btn" id="menu-btn">
+        <label for="menu-btn" class="menu-icon">
+            <span class="nav-icon"></span>
+        </label>
+        <!--menu------------>
+        <ul class="menu">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert"> </div>
+                <strong>Message:</strong>{{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="close"></button>
+                <span aria-hidden="true">&times;</span>
+            {% endfor %}
+
+
+            {% if user.is_authenticated %}
+            <h3 style="color: #FFFFFF; font-family: 'Libre Bodoni', serif;">Hello {{ user_username }}</h3>
+            <li><a href="{% url 'profile_return_home' %}">Home</a></li>
+            <li><a href="{% url 'userAdmin_login_page' %}">Admin</a></li>
+            <li><a href="{% url 'user_contact_form' %}" target="_blank">Contact</a></li>
+            {% endif %}
+        </ul>
+        <!------------dropdown menu------------->
+        <ul id="nav">
+           <li><a href="#" class="nav-contact">Profile</a>
+          <ul>
+          <li><a href="{% url 'user_update_prof' %}" >Update Profile Info.</a></li>
+          <li><a href="{% url 'change_password' %}">Change password</a></li>
+          <li><a href="{% url 'user_sign_out' %}" >Sign-Out</a></li>
+        </ul>
+        </li>
+        </ul>
+    </nav>
+
+    <!--==page-container========================================-->
+    <div class="page-container">
+        <!--==top-bar=============================-->
+        <div class="top-bar">
+            <span>My Blogs</span>
+            <div class="article-number"><span>37</span><br/>Article</div>
+        </div>
+        <!--==Blog-Section=========================-->
+        <section id="blog">
+            <!--heading------------->
+            <div class="blog-heading">
+                <h3>“Pull up a chair. Take a taste. Come join us. Life is so endlessly delicious.”</h3>
+            </div>
+            <!--filter-------------->
+            <ul class="blog-filter">
+                <li class="list blog-filter-active" data-filter="all">All</li>/
+                <li class="list" data-filter="insights">insights</li>/
+                <li class="list" data-filter="projects">projects</li>/
+                <li class="list" data-filter="culture">nb culture</li>/
+                <li class="list" data-filter="news">news</li>
+            </ul>
+            <!--blog-box-container------------------>
+            <div class="blog-container">
+                <!--box-1-------->
+                <a href="#" class="blog-box insights">
+                    <!--img--->
+                    <div class="blog-img">
+                        <img alt="1" src="{% static 'user_media/indian-spices.jpeg' %}">
+                    </div>
+                    <!--text-->
+                    <div class="blog-text">
+                        <span class="category">insights</span>
+                        <strong>Has covid eased some divisions?</strong>
+                        <span class="blog-post-time">June 9 - 5 min read</span>
+                    </div>
+                </a>
+                <!--box-2-------->
+                <a href="#" class="blog-box projects">
+                    <!--img--->
+                    <div class="blog-img">
+                        <img alt="1" src="{% static 'user_media/indian-spices.jpeg' %}">
+                    </div>
+                    <!--text-->
+                    <div class="blog-text">
+                        <span class="category">project</span>
+                        <strong>Inspiring media agencies and brands to use TikTok</strong>
+                        <span class="blog-post-time">June 9 - 5 min read</span>
+                    </div>
+                </a>
+                <!--box-3-------->
+                <a href="#" class="blog-box insights">
+                    <!--img--->
+                    <div class="blog-img">
+                        <img alt="1" src="{% static 'user_media/indian-spices.jpeg' %}">
+                    </div>
+                    <!--text-->
+                    <div class="blog-text">
+                        <span class="category">insights</span>
+                        <strong>Talent pool: Need better staff? Get better principles.</strong>
+                        <span class="blog-post-time">June 9 - 5 min read</span>
+                    </div>
+                </a>
+                <!--box-4-------->
+                <a href="#" class="blog-box culture">
+                    <!--img--->
+                    <div class="blog-img">
+                        <img alt="1" src="{% static 'user_media/indian-spices.jpeg' %}">
+                    </div>
+                    <!--text-->
+                    <div class="blog-text">
+                        <span class="category">NB culture</span>
+                        <strong>Our sustainability journey</strong>
+                        <span class="blog-post-time">June 9 - 5 min read</span>
+                    </div>
+                </a>
+                <!--box-5-------->
+                <a href="#" class="blog-box news">
+                    <!--img--->
+                    <div class="blog-img">
+                        <img alt="1" src="{% static 'user_media/indian-spices.jpeg' %}">
+                    </div>
+                    <!--text-->
+                    <div class="blog-text">
+                        <span class="category">News</span>
+                        <strong>Inspiring media agencies and brands to use TikTok</strong>
+                        <span class="blog-post-time">June 9 - 5 min read</span>
+                    </div>
+                </a>
+                <!--box-6-------->
+                <a href="#" class="blog-box culture">
+                    <!--img--->
+                    <div class="blog-img">
+                        <img alt="1" src="{% static 'user_media/indian-spices.jpeg' %}">
+                    </div>
+                    <!--text-->
+                    <div class="blog-text">
+                        <span class="category">NB culture</span>
+                        <strong>Talent pool: Need better staff? Get better principles.</strong>
+                        <span class="blog-post-time">June 9 - 5 min read</span>
+                    </div>
+                </a>
+            </div>
+
+        </section>
+    </div>
+    <!--page-container-end--------------------->
+    <!--footer=========================================-->
+    <footer>
+        <div class="footer-container">
+            <!--heading----------------->
+            <div class="footer-heading">
+                <h4>It's time to stop scrolling.
+                    <br/>
+                    Let's create something.
+                </h4>
+                <h3>get in touch.</h3>
+            </div>
+            <!--footer-content----------------------------->
+            <div class="footer-content">
+                <!--box------------->
+                <div class="footer-box">
+                    <strong>explore</strong>
+                    <ul>
+                        <li><a href="{% url 'profile_return_home' %}">Home</a></li>
+                        <li><a href="#">About</a></li>
+{#                        <li><a href="#">Project</a></li>#}
+                        <li><a href="{% url 'user_contact_form' %}" target="_blank">Contact</a></li>
+                    </ul>
+                </div>
+                <!--box------------->
+                <div class="footer-box">
+                    <strong>Social</strong>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+{#                        <li><a href="#">Dribble</a></li>#}
+{#                        <li><a href="#">Behance</a></li>#}
+                    </ul>
+                </div>
+                <!--box------------->
+                <div class="footer-box">
+                    <strong>Contact</strong>
+                    <ul>
+                        <li><a href="#">gmail</a></li>
+                        <li><a href="#">+123456789</a></li>
+                    </ul>
+                </div>
+                <!--box------------->
+                <div class="footer-box">
+                    <strong>collaborate </strong>
+                    <ul>
+                        <li><a href="{% url 'user_add_recipe' %}">Create your recipe</a></li>
+                        <li><a href="{% url 'user_contact_form' %}" target="_blank">Suggest Changes and Ideas</a></li>
+                        <li><a href="{% url 'user_login_reg' %}" target="_blank">Join with us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--footer-bottom------------->
+            <div class="footer-bottom">
+                <!--links----->
+                <div class="footer-bottom-link">
+                    <a href="#">privacy</a>
+                    <a href="#">site info</a>
+                    <a href="#">terms</a>
+                </div>
+                <!--copyright-->
+                <div class="copyright">
+                    <span>Made by Sirajudheen</span>
+                    <span>&#169; 2022 GTN</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+ <!--==JQuery=================================-->
+    <script src="{% static 'userapp/js/user_index.js' %}"></script>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link rel="stylesheet" href="{% static 'adminapp/css/admin_add_recipe.css' %}">
+</head>
+<body background="{% static 'admin_media/indian-spices.jpeg' %}">
+
+
+<div class="container">
+  <form id="contact" action="{% url 'add_recipe_page' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+    <h3>Add Recipe Here..</h3>
+    <h4>Add your own recipe once the review has been completed we'll publish it right away.... </h4>
+      <fieldset>
+      <input placeholder="Recipe Name" type="text" id="recipe_name" name="recipe_name" tabindex="2" required>
+    </fieldset>
+      <fieldset>
+      <input placeholder="Short Description" type="text" id="short_description" name="short_description" tabindex="5" required>
+    </fieldset>
+      <fieldset>
+      <textarea placeholder="Ingredients" tabindex="5" id="Ingredients" name="Ingredients" required></textarea>
+    </fieldset>
+      <fieldset>
+      <textarea placeholder="Directions (Step by step) : " tabindex="5" id="directions" name="directions" required></textarea>
+    </fieldset>
+    <fieldset>
+      <textarea placeholder="Tips : " tabindex="5" id="tips" name="tips" required></textarea>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Cooking Time : " type="number" id="cooking_time" name="cooking_time" tabindex="5" required>
+    </fieldset>
+      <fieldset>
+      <input placeholder="Preparation Time : " type="number" id="preparation_time" name="preparation_time" tabindex="5" required>
+    </fieldset>
+
+
+      <div class="frame">
+	<div class="center">
+		<div class="title">
+			<h1>Drop files</h1>
+            <h4>Multiple Images can be uploaded.</h4>
+		</div>
+
+		<div class="dropzone">
+			<img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+			<input type="file" name="image" multiple="multiple" id="image" >
+		</div>
+	</div>
+</div>
+
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" >Submit</button>
+    </fieldset>
+  </form>
+
+</div>
+
+</body>
+</html>

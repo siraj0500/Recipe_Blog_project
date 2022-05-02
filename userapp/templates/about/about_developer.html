@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title> Resume </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="{% static 'userapp/css/develp_style.css' %}">
+
+</head>
+<body>
+
+<div class="resume-wrapper">
+	<section class="profile section-padding">
+		<div class="container">
+			<div class="picture-resume-wrapper">
+        <div class="picture-resume">
+        <span><img src="{% static  'user_media/p-pic.jpg' %}" alt="" /></span>
+        <svg version="1.1" viewBox="0 0 350 350">
+
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -9" result="cm" />
+    </filter>
+  </defs>
+
+
+<g filter="url(#goo)" >
+
+  <circle id="main_circle" class="st0" cx="171.5" cy="175.6" r="130"/>
+
+  <circle id="circle" class="bubble0 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble1 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble2 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble3 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble4 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble5 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble6 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble7 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble8 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble9 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble10 st1" cx="171.5" cy="175.6" r="122.7"/>
+
+</g>
+</svg>
+      </div>
+         <div class="clearfix"></div>
+ </div>
+      <div class="name-wrapper">
+        <h1 style="font-family: 'DM Serif Text', serif;">SIRAJUDHEEN <br/>ASHARAF</h1>
+      </div>
+      <div class="clearfix"></div>
+      <div class="contact-info clearfix">
+      	<ul class="list-titles">
+      		<li>Call</li>
+      		<li>Mail</li>
+      		<!--  <li>Web</li> -->
+      		<li>Home</li>
+      	</ul>
+        <ul class="list-content ">
+        	<li>+91 9746882655</li>
+        	<li><a href="#">sirajudheen1ta@gmail.com</a></li>
+        	<!-- <li><a href="#">myweb.com</a></li> -->
+        	<li>Kerala, India</li>
+        </ul>
+      </div>
+      <div class="contact-presentation">
+      	<p style="font-size:35px;font-family: 'Cookie',cursive"><span class="bold" > “Improvise, Adapt and Overcome!”  </span></p>
+      </div>
+      <div class="contact-social clearfix">
+      	<ul class="list-titles">
+      		<!-- <li>Twitter</li> -->
+      		<!-- <li>Dribbble</li> -->
+      		<li>linkedin</li>
+      	</ul>
+        <ul class="list-content">
+      		<!-- <li><a href="">@webdevtrick</a></li> -->
+      		<!-- <li><a href="">@webdevtrick</a></li> -->
+      		<li><a href="https://www.linkedin.com/in/sirajudheen-asharaf-ba1471230/">@sirajudheen-asharaf</a></li>
+      	</ul>
+      </div>
+		</div>
+	</section>
+
+  <section class="experience section-padding">
+  	<div class="container">
+  		<h3 class="experience-title">Experience</h3>
+
+      <div class="experience-wrapper">
+      	<div class="company-wrapper clearfix">
+      		<div class="experience-title">Company name</div>
+          <div class="time">Feb 2018 </div>
+            <div class="time">Milifestyle </div>
+      	</div>
+
+        <div class="job-wrapper clearfix">
+        	<div class="experience-title">Office Admin </div>
+          <div class="company-description">
+          	<p>Provide administrative support to the office personnel.
+                working closely with the leadership team by handling clerical duties,
+                coordinating calendars, and organizing meetings.</p>
+          </div>
+        </div>
+
+        <div class="company-wrapper clearfix">
+      		<div class="experience-title">Company name</div>
+          <div class="time">Jan 2019 - June 2020 </div>
+            <div class="time">Maqlobh </div>
+      	</div>
+
+         <div class="job-wrapper clearfix">
+        	<div class="experience-title">HR Manager</div>
+          <div class="company-description">
+          	<p>Provide administrative support to the employees.
+                Process payroll, Conduct disciplinary actions and update policies,
+                Maintain employee records and conduct benefit analysis</p>
+          </div>
+        </div>
+
+        <div class="company-wrapper clearfix">
+      		<div class="experience-title">Company name</div>
+          <div class="time">June 2020 to date </div>
+      	</div>
+
+         <div class="job-wrapper clearfix">
+        	<div class="experience-title">Accountant </div>
+          <div class="company-description">
+          	<p> Make critical financial decisions by collecting, tracking, and correcting the company's finances. Conduct financial audits, reconciling bank statements, and ensuring financial records are accurate throughout the year.
+            Constant communication with shareholders and banks,</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="section-wrapper clearfix">
+      	<h3 class="section-title">Skills</h3>
+        	<ul>
+                <li class="skill-percentage">Python</li>
+                <li class="skill-percentage">django </li>
+                <li class="skill-percentage">HTML / HTML5</li>
+        		<li class="skill-percentage">CSS </li>
+        		<li class="skill-percentage">Javascript</li>
+
+        	</ul>
+
+      </div>
+
+      <div class="section-wrapper clearfix">
+        <h3 class="section-title">Hobbies</h3>
+        <p>Computers and Internet , Hardware and software, New Technologies, </p>
+
+        <p>Read and collect books, Martial arts enthusiast,  </p>
+      </div>
+
+  	</div>
+  </section>
+
+  <div class="clearfix"></div>
+</div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script>
+<script  src="{% static 'userapp/js/develp_function.js' %}"></script>
+
+</body>
+</html>

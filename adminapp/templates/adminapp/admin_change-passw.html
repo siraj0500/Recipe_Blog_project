@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/adminapp/static/adminapp/css/admin_change-passw.css">
+</head>
+<body background="/media/spices.jpg" style="no-repeat: fixed center center;
+	 background-size: cover;">
+<div class="title-bar">
+    <div class="center-title" style="color: black">God's Own Recipe</div>
+
+  </div>
+
+<div class="reset-password-box">
+
+  <div class="title-bar">
+    <div class="title">PASSWORD RESET</div>
+
+  </div>
+
+  <div class="username">
+    <label for="username-input" class="username-label">Username</label>
+    <input type="text" id="username-input" autofocus>
+  </div>
+  <!--
+  <div class="password">
+    <label for="password-input" class="password-label">Old Password</label>
+    <input type="password" id="password-input">
+  </div>
+  -->
+
+  <div class="new-password">
+    <label for="new-password-input" class="new-password-label">New Password</label>
+    <input type="password" id="new-password-input">
+  </div>
+
+  <div class="password-verification">
+    <label for="password-input" class="password--verification-label">Password Verification</label>
+    <input type="password" id="password-verification-input">
+  </div>
+
+
+  <div class="back-login">
+    <div class="back">
+      <a href="admin_sign-in.html"><i class="fa fa-angle-double-left"></i> Back to Login</a>
+    </div>
+    <div class="reset-password-button" onclick="airTableResetPassword()">
+      <a href="#">Rest Password</a>
+    </div>
+  </div>
+
+</div>
+<script src="/adminapp/static/adminapp/js/admin_change-passw.js"></script>
+</body>
+</html>

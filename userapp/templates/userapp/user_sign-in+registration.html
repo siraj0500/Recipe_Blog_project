@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+	<title> Login | Signup </title>
+    <link rel="stylesheet" type="text/css" href="{% static  'userapp/css/user_sign-in&registration.css' %}">
+</head>
+<body>
+
+	<div class="container">
+		<div class="forms-container">
+			<div class="signin-signup">
+
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                <strong>Message : </strong>{{ message }}
+
+                <span class="btn btn-close" onclick="this.parentElement.style.display='none';"><button type="button" class="btn-primary btn-xs" data-dismiss="alert" aria-label="close">close</button></span>
+                </div>
+                {% endfor %}
+
+				<form class="sign-in-form" action="{% url 'user_sign_in' %}" method="post">
+                    {% csrf_token %}
+					<h2 class="title">Sign in</h2>
+					<div class="input-field">
+						<i class="fas fa-user"></i>
+						<input type="text" placeholder="Username" id="user_username" name="user_username">
+					</div>
+					<div class="input-field">
+						<i class="fas fa-lock"></i>
+						<input type="Password" placeholder="Password" id="user_password" name="user_password">
+					</div>
+					<input type="submit" value="Login" class="btn btn-solid">
+
+
+					<p class="social-text">Or Sign in with social platforms</p>
+					<div class="social-media">
+						<a href="#" class="social-icon">
+							<i class="fab fa-facebook-f"></i>
+						</a>
+						<a href="#" class="social-icon">
+							<i class="fab fa-twitter"></i>
+						</a>
+						<a href="#" class="social-icon">
+							<i class="fab fa-google"></i>
+						</a>
+						<a href="#" class="social-icon">
+							<i class="fab fa-linkedin-in"></i>
+						</a>
+					</div>
+				</form>
+
+
+				<form class="sign-up-form" action="{% url 'user_registration' %}" method="post">
+                    {% csrf_token %}
+					<h2 class="title">Sign Up</h2>
+					<div class="input-field">
+						<i class="fas fa-user"></i>
+						<input type="text" placeholder="Username" id="user_username" name="user_username" required>
+					</div>
+					<div class="input-field">
+						<i class="fas fa-envelope"></i>
+						<input type="Email" placeholder="Email" id="user_email" name="user_email" required>
+					</div>
+					<div class="input-field">
+						<i class="fas fa-lock"></i>
+						<input type="Password" placeholder="Password" id="user_password" name="user_password" required>
+					</div>
+                    <div class="input-field">
+						<i class="fas fa-lock"></i>
+						<input type="Password" placeholder="Confirm Password" id="confirm_password" name="confirm_password" required>
+					</div>
+					<input type="submit" value="Sign Up" class="btn solid">
+					<p class="social-text">Or Sign up with social platforms</p>
+					<div class="social-media">
+						<a href="#" class="social-icon">
+							<i class="fab fa-facebook-f"></i>
+						</a>
+						<a href="#" class="social-icon">
+							<i class="fab fa-twitter"></i>
+						</a>
+						<a href="#" class="social-icon">
+							<i class="fab fa-google"></i>
+						</a>
+						<a href="#" class="social-icon">
+							<i class="fab fa-linkedin-in"></i>
+						</a>
+					</div>
+				</form>
+
+
+			</div>
+		</div>
+		<div class="panels-container">
+			<div class="panel left-panel">
+				<div class="content">
+					<h3>New here ?</h3>
+					<p>Sign up to get meal ideas, save your favorite recipes, create shopping lists, and more!</p>
+					<button class="btn transparent" id="sign-up-btn">Sign Up</button>
+				</div>
+
+				<img src="{% static  'user_media/undraw_barbecue_3x93.svg' %}" class="image">
+			</div>
+
+			<div class="panel right-panel">
+				<div class="content">
+					<h3>One of us ?</h3>
+					<button class="btn transparent" id="sign-in-btn">Sign in</button>
+				</div>
+
+				<img src="{% static 'user_media/undraw_eating_together_re_ux62.svg' %}" class="image">
+			</div>
+		</div>
+	</div>
+
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="{% static 'userapp/js/user_sign-in&registration.js' %}"></script>
+</body>
+</html>

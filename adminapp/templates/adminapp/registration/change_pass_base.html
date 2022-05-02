@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}God's Own Recipe{% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static '/userapp/css/style.css' %}"/>
+</head>
+<body>
+  <header>
+    <h1 style="color: black">God's Own Recipe</h1>
+    {% if user.is_authenticated %}
+      Welcome {{ user.username }}!
+      <a href="{% url 'user_sign_out' %}">logout</a>
+    {% else %}
+      <a href="{% url 'user_login_reg' %}" style="font-size: 25px;font-weight: 600;color:#bca0ff">login</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'user_login_reg' %}" style="font-size: 25px;font-weight: 600;color:#bca0ff">Create New Account</a>
+    {% endif %}
+  </header>
+  <hr>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+  <hr>
+</body>
+</html>
