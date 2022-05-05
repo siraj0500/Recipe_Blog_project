@@ -1,0 +1,23 @@
+#Recipe_blog includes user and admin applications,
+
+user app: home Page, register & log in, reset&forgot password(Inherit from Django(customizes templates)), email confirmation,User profile(with CRUD operations), inbox, create recipes(for users only)
+
+admin app: admin dashboard with full access (Every post, message, user's profile, site visits, share & comments, CRUD,)
+
+used languages :
+#python for the backend.
+
+For the frontend:
+#html5 ,
+#css ,
+#scss ,
+#javascript ,
+#bootstrap ,
+#jquery,
+
+Currently on #sqlite server
+
+*#suggestions , #ideas , #tips , and #opinions are always welcome.
+
+
+#gmail : sirajudheen1ta@gmail.com
