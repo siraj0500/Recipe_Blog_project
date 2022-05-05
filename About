@@ -5,7 +5,7 @@ user app: home Page, register & log in, reset&forgot password(Inherit from Djang
 admin app: admin dashboard with full access (Every post, message, user's profile, site visits, share & comments, CRUD,)
 
 used languages :
-#python for the backend.
+python for the backend.
 
 For the frontend:
 #html5 ,
