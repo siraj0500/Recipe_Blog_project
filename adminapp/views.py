@@ -17,11 +17,18 @@ from .tockens import generate_token
 
 
 # Create your views here.
+def admin_das(request):
+    return render(request, 'adminapp/admin_index.html')
+
+
+def admin_read_more(request, id):
+    read = RecipePost.objects.filter(id=id)
+    return render(request, 'adminapp/admin_readmore.html', {'read': read})
 
 
 def admin_dashboard(request):
     context = RecipePost.objects.all()
-    return render(request, 'adminapp/admin_index.html', {'context': context})
+    return render(request, 'adminapp/admin_posts.html', {'context': context})
 
 
 def admin_login_page(request):
@@ -35,7 +42,7 @@ def admin_registration(request):
         admin_email = request.POST['admin_email']
         admin_password = request.POST['admin_password']
         admin_confirm_password = request.POST['admin_confirm_password']
-        admin_pic = request.FILES.get('admin_pic')
+        # admin_pic = request.FILES.get('admin_pic')
 
         # conditions on registration
         if User.objects.filter(username=admin_username).exists():
@@ -150,13 +157,19 @@ def recipe_db(request):
         cooking_time = request.POST.get('cooking_time')
         preparation_time = request.POST.get('preparation_time')
         image = request.FILES['image']
+        author = request.session.get('author', 'user_username')
         db = RecipePost(
             recipe_name=recipe_name, short_description=short_description, ingredients=ingredients,
             cooking_directions=directions, cooking_tips=tips,
             cooking_time=cooking_time, preparation_time=preparation_time,
-            recipe_images=image)
+            recipe_images=image, author=author)
 
         db.save()
         return redirect('add_recipe')
     else:
         return HttpResponse('Complete the form and try again...')
+
+
+def users_list(request):
+    users_list = User.objects.all()
+    return render(request,'adminapp/users_list.html',{'users_list':users_list})

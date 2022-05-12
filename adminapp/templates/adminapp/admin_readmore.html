@@ -1,21 +1,30 @@
-{% extends 'userapp/user_index.html' %}
+{% extends 'adminapp/admin_index.html' %}
 {% block  content %}
 
-    {% for data in more %}
+    {% for data in read %}
 <div class="blog-container" content="width=device-width, intial-scale=1">
          <div class="card" style="width: 68rem; align-content: flex-start;">
        <img src="{{ data.recipe_images.url }}" class="responsive-img" alt="">
         <p style="font-size: x-large; text-decoration: underline">{{ data.recipe_name }}</p>
+             <br>
           <p >{{ data.short_description }}</p>
+             <br>
              <p class=" text-muted"><h8 style="color: black">author :</h8>{{ data.Author }} <h8 style="color: black">Posted on :</h8> {{ data.recipe_datePosted }}</p>
+             <br>
           <p class=" text-muted"><h8 style="color: black">Cooking Time :</h8>{{ data.cooking_time }} <br> <h8 style="color: black">Preparation time :</h8> {{ data.preparation_time }}</p>
-             <h6>Ingredients</h6>
+             <br>
+             <h6 style="text-decoration: underline">Ingredients</h6>
+             <br>
              <ul class="list-group">
                  <li class="list-group-item">{{ data.ingredients }}</li>
              </ul>
-             <h6>Directions</h6>
+             <br>
+             <h6 style="text-decoration: underline">Directions</h6>
+             <br>
         <p class="card-text ">{{ data.cooking_directions }}</p>
-             <h6>Tips</h6>
+             <br>
+             <h6 style="text-decoration: underline">Tips</h6>
+             <br>
           <p class="card-text ">{{ data.cooking_tips }}</p>
          </div>
 </div>

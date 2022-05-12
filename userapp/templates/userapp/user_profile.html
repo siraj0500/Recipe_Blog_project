@@ -17,11 +17,6 @@
 </head>
 <body style="background: url({% static 'user_media/userindexback.jpg' %})no-repeat fixed center center;
 	    background-size: cover;">
-{% block content %}
-    <!--==Page-Scroll-progress-bar==============-->
-    <div id="progress">
-        <span id="progress-value"></span>
-    </div>
     <!--==navigation=============================-->
     <nav class="navigation">
         <!--logo------------>
@@ -44,7 +39,7 @@
             {% if user.is_authenticated %}
             <h3 style="color: #FFFFFF; font-family: 'Libre Bodoni', serif;">Hello {{ user_username }}</h3>
             <li><a href="{% url 'profile_return_home' %}">Home</a></li>
-            <li><a href="{% url 'userAdmin_login_page' %}">Admin</a></li>
+            <li><a href="{% url 'user_add_recipe' %}">Create Recipe</a></li>
             <li><a href="{% url 'user_contact_form' %}" target="_blank">Contact</a></li>
             {% endif %}
         </ul>
@@ -82,88 +77,25 @@
                 <li class="list" data-filter="news">news</li>
             </ul>
             <!--blog-box-container------------------>
-            <div class="blog-container">
-                <!--box-1-------->
-                <a href="#" class="blog-box insights">
-                    <!--img--->
-                    <div class="blog-img">
-                        <img alt="1" src="{% static 'user_media/indian-spices.jpeg' %}">
-                    </div>
-                    <!--text-->
-                    <div class="blog-text">
-                        <span class="category">insights</span>
-                        <strong>Has covid eased some divisions?</strong>
-                        <span class="blog-post-time">June 9 - 5 min read</span>
-                    </div>
-                </a>
-                <!--box-2-------->
-                <a href="#" class="blog-box projects">
-                    <!--img--->
-                    <div class="blog-img">
-                        <img alt="1" src="{% static 'user_media/indian-spices.jpeg' %}">
-                    </div>
-                    <!--text-->
-                    <div class="blog-text">
-                        <span class="category">project</span>
-                        <strong>Inspiring media agencies and brands to use TikTok</strong>
-                        <span class="blog-post-time">June 9 - 5 min read</span>
-                    </div>
-                </a>
-                <!--box-3-------->
-                <a href="#" class="blog-box insights">
-                    <!--img--->
-                    <div class="blog-img">
-                        <img alt="1" src="{% static 'user_media/indian-spices.jpeg' %}">
-                    </div>
-                    <!--text-->
-                    <div class="blog-text">
-                        <span class="category">insights</span>
-                        <strong>Talent pool: Need better staff? Get better principles.</strong>
-                        <span class="blog-post-time">June 9 - 5 min read</span>
-                    </div>
-                </a>
-                <!--box-4-------->
-                <a href="#" class="blog-box culture">
-                    <!--img--->
-                    <div class="blog-img">
-                        <img alt="1" src="{% static 'user_media/indian-spices.jpeg' %}">
-                    </div>
-                    <!--text-->
-                    <div class="blog-text">
-                        <span class="category">NB culture</span>
-                        <strong>Our sustainability journey</strong>
-                        <span class="blog-post-time">June 9 - 5 min read</span>
-                    </div>
-                </a>
-                <!--box-5-------->
-                <a href="#" class="blog-box news">
-                    <!--img--->
-                    <div class="blog-img">
-                        <img alt="1" src="{% static 'user_media/indian-spices.jpeg' %}">
-                    </div>
-                    <!--text-->
-                    <div class="blog-text">
-                        <span class="category">News</span>
-                        <strong>Inspiring media agencies and brands to use TikTok</strong>
-                        <span class="blog-post-time">June 9 - 5 min read</span>
-                    </div>
-                </a>
-                <!--box-6-------->
-                <a href="#" class="blog-box culture">
-                    <!--img--->
-                    <div class="blog-img">
-                        <img alt="1" src="{% static 'user_media/indian-spices.jpeg' %}">
-                    </div>
-                    <!--text-->
-                    <div class="blog-text">
-                        <span class="category">NB culture</span>
-                        <strong>Talent pool: Need better staff? Get better principles.</strong>
-                        <span class="blog-post-time">June 9 - 5 min read</span>
-                    </div>
-                </a>
-            </div>
-
         </section>
+
+        {% block content %}
+            <section>
+            <div class="blog-container">
+                {% for data in context %}
+                <div class="card" style="width: 18rem;">
+                  <img src="{{data.recipe_images.url }}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ data.recipe_name }}</h5>
+                    <p class="card-text">{{ data.short_description }}</p>
+                    <a href="{% url 'read_more' id=data.id %}" class="btn btn-dark">Read more...</a>
+                  </div>
+                </div>
+                {% endfor %}
+            </div>
+            </section>
+    {% endblock %}
+
     </div>
     <!--page-container-end--------------------->
     <!--footer=========================================-->
@@ -234,6 +166,5 @@
     </footer>
  <!--==JQuery=================================-->
     <script src="{% static 'userapp/js/user_index.js' %}"></script>
-{% endblock %}
 </body>
 </html>

@@ -9,10 +9,9 @@ STATUS = (
     (1, "Publish")
 )
 
-
 class RecipePost(models.Model):
     recipe_name = models.CharField(max_length=70)
-    short_description = models.CharField(max_length=70)
+    short_description = models.CharField(max_length=200)
     ingredients = models.CharField(max_length=300, null=True)
     cooking_directions = models.TextField(max_length=3000)
     cooking_tips = models.TextField(max_length=500)

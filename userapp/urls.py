@@ -47,6 +47,6 @@ urlpatterns = [
 
     # shows data
     path('show_recipe',views.show,name='show_recipe'),
-    path('readmore',views.read_more,name='read_more')
+    path('readmore/<int:id>/',views.read_more,name='read_more')
 
 ]

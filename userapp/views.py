@@ -19,7 +19,7 @@ from adminapp.models import RecipePost
 
 
 def read_more(request, id):
-    more = User.objects.get(id=id)
+    more = RecipePost.objects.filter(id=id)
     return render(request, 'userapp/readmore.html', {'more': more})
 
 
